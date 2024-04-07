@@ -15,7 +15,7 @@ return [
     */
 
     'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title_prefix' => 'YIYA |',
     'title_postfix' => '',
 
     /*
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Home</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -294,7 +294,6 @@ return [
     */
 
     'menu' => [
-
         [
             'text' => 'Config',
             'icon' => 'fas fa-fw fa-share',
@@ -308,8 +307,8 @@ return [
                     'route' => 'rooms.index',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Clients',
+                    'route' => 'clients.index',
                 ],
             ],
         ],

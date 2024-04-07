@@ -20,7 +20,7 @@ class Clients extends Model
         'firstLastName',
         'secondLastName',
         'telephone',
-        'bithday',
+        'birthday',
         'address,'
     ];
 }

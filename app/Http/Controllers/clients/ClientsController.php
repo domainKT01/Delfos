@@ -10,13 +10,39 @@ class ClientsController extends Controller
 {
     public function index()
     {
-        $allClients = Clients::all();
+        $clients = Clients::all();
 
-        return view('clients.index', compact('allClients'));
+        return view('clients.index', compact('clients'));
+    }
+
+    public function create()
+    {
+        return view('clients.create');
     }
 
     public function store(Request $request)
     {
         $client = new Clients();
+
+        $client->docType = $request->docType;
+        $client->identification = $request->identification;
+        $client->firstName = $request->firstName;
+        $client->secondName = $request->secondName;
+        $client->firstLastName = $request->firstLastName;
+        $client->secondLastName = $request->secondLastName;
+        $client->telephone = $request->telephone;
+        $client->birthday = $request->birthday;
+        $client->address = $request->address;
+
+        $client->save();
+
+        return redirect()->route('clients.index');
+    }
+
+    public function show($id)
+    {
+        $client = Clients::all();
+
+        dd($client);
     }
 }

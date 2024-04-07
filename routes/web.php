@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\clients\ClientsController;
 use App\Http\Controllers\rooms\RoomsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\status\StatusController;
@@ -19,5 +20,5 @@ Route::middleware([
 });
 
 Route::resource('status', StatusController::class)->names('status');
-
 Route::resource('rooms', RoomsController::class)->names('rooms');
+Route::resource('clients', ClientsController::class)->names('clients');
