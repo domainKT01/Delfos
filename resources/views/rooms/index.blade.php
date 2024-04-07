@@ -31,14 +31,23 @@
                                             @csrf
                                             <div class="input-group mb-3">
                                             </div>
-                                            <div class="input-group mb-3">
+                                            <div class="input-group mb-3 row">
                                                 <input type="text" id="name" name="name"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
-                                             focus:ring-blue-500 focus:border-blue-500 block w-24 min-w-full
-                                             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-                                             dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-2 form-control"
+                                                    class="col bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                                        focus:ring-blue-500 focus:border-blue-500 block w-24 min-w-full
+                                                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+                                                        dark:focus:ring-blue-500 dark:focus:border-blue-500 mr-2 form-control"
                                                     placeholder="Name" required>
+
+                                                <div class="input-group mb-3 col" style="padding-top: 6px">
+                                                    <select name="type" id="cars">
+                                                        <option value="" selected>Select Type</option>
+                                                        <option value="normal">Normal</option>
+                                                        <option value="plus">Plus</option>
+                                                    </select>
+                                                </div>
                                             </div>
+
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
@@ -55,15 +64,17 @@
             <table class="table table-striped table-bordered table-sm ">
                 <thead>
                     <tr>
-                        <th class="text-center">DESCRIPTION</th>
-                        <th class="text-center">STATUS</th>
+                        <th class="text-center">Room</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($allRooms as $room)
                         <tr>
                             <td class="text-center">{{ $room->name }}</td>
-                            <td class="col-md-6 text-center" width="10px" class="text-left">
+                            <td class="text-center">{{ $room->type }}</td>
+                            <td class="col-md-4 text-center" width="10px" class="text-left">
                                 {{ $room->status->status_name }}</td>
                         </tr>
                     @endforeach
