@@ -316,7 +316,7 @@ return [
         [
             'text' => 'InCome',
             'icon_color' => 'red',
-            'url' => '#',
+            'route' => 'inComes.index',
         ],
         [
             'text' => 'warning',

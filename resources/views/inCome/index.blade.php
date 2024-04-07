@@ -18,7 +18,7 @@
                     <input wire:model="search" class="form-control mt-2 ml-4 mr-4 "
                         placeholder="Type what you want to search for">
                     <div class="input-group-btn">
-                        <a class="btn btn-outline-info btn-med mr-2 mt-2" href="{{ route('clients.create') }}">Create</a>
+                        <a class="btn btn-outline-info btn-med mr-2 mt-2" href="{{ route('inComes.create') }}">Create</a>
                     </div>
                 </div>
             </div>
@@ -27,28 +27,27 @@
                 <table class="table table-striped table-bordered table-sm ">
                     <thead>
                         <tr>
-                            <th class="text-center">Identification</th>
                             <th class="text-center">First Name</th>
                             <th class="text-center">First LastName</th>
-                            <th class="text-center">Birthday</th>
+                            <th class="text-center">No. Room</th>
+                            <th class="text-center">Type</th>
                             <th class="text-center" colspan="2">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($clients as $client)
+                        @foreach ($allInComes as $inComes)
                             <tr>
-                                <td class="text-center">{{ $client->identification }}</td>
-                                <td class="col-sm-2 text-center" width="10px" class="text-left">{{ $client->firstName }}
+                                <td class="text-center">{{ $inComes->clients->firstName }}</td>
+                                <td class="col-sm-2 text-center" width="10px" class="text-left">
+                                    {{ $inComes->clients->firstLastName }}
                                 </td>
-                                <td class="text-center">{{ $client->firstLastName }}</td>
-                                <td class="text-center">{{ $client->birthday }}</td>
+                                <td class="text-center">{{ $inComes->rooms->name }}</td>
+                                <td class="text-center">{{ $inComes->rooms->type }}</td>
                                 <td>
                                     <div>
-                                        <form action="{{ route('create_in') }}" method="POST">
-                                            @csrf
-                                            <button class="text-center btn btn-outline-warning" name="id_client"
-                                                value="{{ $client->id }}">
-                                                Reserve
+                                        <form action="{{ route('inComes.create') }}" method="GET">
+                                            <button class="text-center btn btn-outline-warning">
+                                                Quit
                                             </button>
                                         </form>
 
